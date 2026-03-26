@@ -14,6 +14,10 @@ export const metadata: Metadata = {
   description:
     'Download Dhan77 APK and play games to earn real money. Get ₹777 bonus, instant withdrawals, and referral rewards.',
   keywords: DEFAULT_KEYWORDS,
+  icons: {
+    icon: '/dhan77-logo.png',
+    apple: '/dhan77-logo.png',
+  },
 }
 
 export default function RootLayout({
