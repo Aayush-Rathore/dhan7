@@ -1,65 +1,167 @@
-import Image from "next/image";
+import type { Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
+import CTAButton from './_components/CTAButton'
+import { siteUrl } from './_lib/siteUrl'
+import { DOWNLOAD_LINK } from './_lib/constants'
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: 'Dhan77 APK Download | Dhan7 Gaming App',
+  alternates: {
+    canonical: '/',
+  },
+}
+
+const screenshots = [
+  { src: '/dhan7-1.jpeg', alt: 'Dhan77 screenshot 1' },
+  { src: '/dhan7-2.jpeg', alt: 'Dhan77 screenshot 2' },
+  { src: '/dhan7-3.jpeg', alt: 'Dhan77 screenshot 3' },
+  { src: '/dhan7-4.jpeg', alt: 'Dhan77 screenshot 4' },
+  { src: '/dhan7-5.jpeg', alt: 'Dhan77 screenshot 5' },
+  { src: '/dhan7-6.jpeg', alt: 'Dhan77 screenshot 6' },
+  { src: '/dhan7-7.jpeg', alt: 'Dhan77 screenshot 7' },
+]
+
+const features = [
+  'Instant Withdrawal',
+  '₹777 Bonus',
+  'Referral Income',
+  'Fast Gameplay',
+  'Secure System',
+]
+
+const games = ['Crash', 'Casino', 'Slots', 'Fishing']
+
+const internalLinks = [
+  { href: '/dhan77-apk-download', label: 'Dhan77 APK Download' },
+  { href: '/dhan77-login', label: 'Dhan77 Login' },
+  { href: '/dhan77-bonus', label: 'Dhan77 Bonus' },
+  { href: '/dhan77-review', label: 'Dhan77 Review' },
+]
+
+export default function HomePage() {
+  const jsonLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Dhan77',
+    operatingSystem: 'Android',
+    applicationCategory: 'GameApplication',
+    url: siteUrl(),
+    downloadUrl: DOWNLOAD_LINK,
+  }).replace(/</g, '\\u003c')
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <>
+    <main className="flex flex-col gap-16 px-4 py-12 max-w-4xl mx-auto">
+      {/* Hero */}
+      <section className="flex flex-col items-center gap-6 text-center">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          src="/dhan77-logo.png"
+          alt="Dhan77 logo"
+          width={120}
+          height={120}
           priority
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        <h1 className="text-4xl font-bold text-(--color-accent-gold)">
+          Dhan77 Gaming App
+        </h1>
+        <p className="text-xl text-(--color-text-muted)">
+          Play Games &amp; Earn Real Money Instantly
+        </p>
+        <CTAButton />
+      </section>
+
+      {/* What is Dhan77 */}
+      <section className="flex flex-col gap-4">
+        <h2 className="text-2xl font-bold text-(--color-accent-red)">
+          What is Dhan77?
+        </h2>
+        <p className="text-(--color-text-muted) leading-relaxed">
+          Dhan77 is a real-money gaming platform where you can play and win cash
+          instantly. The platform offers a wide variety of games including
+          casino, crash, slots, and fishing — all designed for fast, exciting
+          gameplay with real rewards. Register today, claim your ₹777 welcome
+          bonus, and start earning.
+        </p>
+      </section>
+
+      {/* Screenshots */}
+      <section className="flex flex-col gap-6">
+        <h2 className="text-2xl font-bold text-(--color-accent-red)">
+          App Screenshots
+        </h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          {screenshots.map(({ src, alt }) => (
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              key={src}
+              src={src}
+              alt={alt}
+              width={200}
+              height={360}
+              className="rounded-lg w-full h-auto"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          ))}
         </div>
-      </main>
-    </div>
-  );
+      </section>
+
+      {/* Features */}
+      <section className="flex flex-col gap-4">
+        <h2 className="text-2xl font-bold text-(--color-accent-red)">
+          Key Features
+        </h2>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {features.map((feature) => (
+            <li
+              key={feature}
+              className="flex items-center gap-2 text-(--color-text-primary)"
+            >
+              <span className="text-(--color-accent-gold) font-bold">✓</span>
+              {feature}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Games */}
+      <section className="flex flex-col gap-4">
+        <h2 className="text-2xl font-bold text-(--color-accent-red)">
+          Games Available
+        </h2>
+        <ul className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          {games.map((game) => (
+            <li
+              key={game}
+              className="rounded-lg border border-(--color-accent-gold) px-4 py-3 text-center font-semibold text-(--color-accent-gold)"
+            >
+              {game}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Internal Links */}
+      <section className="flex flex-col gap-4">
+        <h2 className="text-2xl font-bold text-(--color-accent-red)">
+          Explore More
+        </h2>
+        <ul className="flex flex-col sm:flex-row flex-wrap gap-3">
+          {internalLinks.map(({ href, label }) => (
+            <li key={href}>
+              <Link
+                href={href}
+                className="inline-block rounded-lg border border-(--color-accent-red) px-5 py-2 text-(--color-accent-red) hover:bg-(--color-accent-red) hover:text-(--color-text-primary) transition-colors"
+              >
+                {label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </main>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: jsonLd }}
+    />
+    </>
+  )
 }

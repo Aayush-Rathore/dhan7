@@ -1,0 +1,67 @@
+import type { Metadata } from 'next'
+import CTAButton from '../_components/CTAButton'
+
+export const metadata: Metadata = {
+  title: 'Dhan77 APK Download (Latest Version)',
+  alternates: {
+    canonical: '/dhan77-apk-download',
+  },
+}
+
+const steps = [
+  'Click the download button below',
+  'Allow installation from unknown sources in your device settings',
+  'Install the downloaded APK file',
+  'Open the app and start playing',
+]
+
+const features = ['Secure APK', 'Fast install', 'No Play Store required']
+
+export default function DownloadPage() {
+  return (
+    <main className="flex flex-col gap-12 px-4 py-12 max-w-3xl mx-auto">
+      <section className="flex flex-col items-center gap-6 text-center">
+        <h1 className="text-4xl font-bold text-(--color-accent-gold)">
+          Dhan77 APK Download
+        </h1>
+        <p className="text-(--color-text-muted)">
+          Download the latest version of Dhan77 APK and start earning real money today.
+        </p>
+        <CTAButton />
+      </section>
+
+      <section className="flex flex-col gap-4">
+        <h2 className="text-2xl font-bold text-(--color-accent-red)">
+          How to Install
+        </h2>
+        <ol className="flex flex-col gap-3">
+          {steps.map((step, i) => (
+            <li key={i} className="flex items-start gap-3 text-(--color-text-primary)">
+              <span className="flex-shrink-0 w-7 h-7 rounded-full bg-(--color-accent-red) text-(--color-text-primary) flex items-center justify-center font-bold text-sm">
+                {i + 1}
+              </span>
+              {step}
+            </li>
+          ))}
+        </ol>
+        <div className="mt-4 flex justify-center">
+          <CTAButton />
+        </div>
+      </section>
+
+      <section className="flex flex-col gap-4">
+        <h2 className="text-2xl font-bold text-(--color-accent-red)">
+          Why Download Dhan77?
+        </h2>
+        <ul className="flex flex-col gap-2">
+          {features.map((f) => (
+            <li key={f} className="flex items-center gap-2 text-(--color-text-primary)">
+              <span className="text-(--color-accent-gold) font-bold">✓</span>
+              {f}
+            </li>
+          ))}
+        </ul>
+      </section>
+    </main>
+  )
+}
