@@ -4,7 +4,7 @@ interface CTAButtonProps {
   label?: string
 }
 
-export default function CTAButton({ label = 'Download Dhan77 APK' }: CTAButtonProps) {
+export default function CTAButton({ label = 'Download Dhan7 APK (Dhan77)' }: CTAButtonProps) {
   return (
     <a
       href={DOWNLOAD_LINK}

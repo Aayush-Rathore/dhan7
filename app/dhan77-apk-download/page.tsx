@@ -1,12 +1,21 @@
 import type { Metadata } from 'next'
 import CTAButton from '../_components/CTAButton'
+import InternalLinks from '../_components/InternalLinks'
+import { buildPageMetadata } from '../_lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Dhan77 APK Download (Latest Version)',
-  alternates: {
-    canonical: '/dhan77-apk-download',
-  },
-}
+export const metadata: Metadata = buildPageMetadata({
+  path: '/dhan77-apk-download',
+  title: 'Dhan7 APK Download (Dhan77 Latest Version)',
+  description:
+    'Download Dhan7 APK (Dhan77 latest version), follow secure install steps, and start using the app with bonus and login guides.',
+  keywords: [
+    'dhan7 apk',
+    'dhan7 apk download',
+    'dhan77 apk download',
+    'download dhan7 app',
+    'dhan7 latest version',
+  ],
+})
 
 const steps = [
   'Click the download button below',
@@ -22,10 +31,10 @@ export default function DownloadPage() {
     <main className="flex flex-col gap-12 px-4 py-12 max-w-3xl mx-auto">
       <section className="flex flex-col items-center gap-6 text-center">
         <h1 className="text-4xl font-bold text-(--color-accent-gold)">
-          Dhan77 APK Download
+          Dhan7 APK Download (Dhan77)
         </h1>
         <p className="text-(--color-text-muted)">
-          Download the latest version of Dhan77 APK and start earning real money today.
+          Download the latest version of Dhan7 APK and start earning real money today.
         </p>
         <CTAButton />
       </section>
@@ -62,6 +71,23 @@ export default function DownloadPage() {
           ))}
         </ul>
       </section>
+
+      <section className="flex flex-col gap-3 rounded-lg border border-(--color-accent-gold) p-5">
+        <h2 className="text-xl font-bold text-(--color-accent-gold)">Before You Install</h2>
+        <p className="text-(--color-text-muted)">
+          Review the{' '}
+          <a href="/dhan77-login" className="text-(--color-accent-gold) hover:underline">
+            Dhan7 login steps
+          </a>{' '}
+          and{' '}
+          <a href="/dhan77-bonus" className="text-(--color-accent-gold) hover:underline">
+            Dhan7 bonus offers
+          </a>{' '}
+          so you can start quickly after installing.
+        </p>
+      </section>
+
+      <InternalLinks currentPath="/dhan77-apk-download" />
     </main>
   )
 }

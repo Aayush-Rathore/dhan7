@@ -1,11 +1,19 @@
 import type { Metadata } from 'next'
+import InternalLinks from '../_components/InternalLinks'
+import { buildPageMetadata } from '../_lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Dhan77 Login Guide',
-  alternates: {
-    canonical: '/dhan77-login',
-  },
-}
+export const metadata: Metadata = buildPageMetadata({
+  path: '/dhan77-login',
+  title: 'Dhan7 Login Guide (Dhan77 App)',
+  description:
+    'Follow the Dhan7 login process with OTP, mobile number verification, and account security tips for the Dhan77 app.',
+  keywords: [
+    'dhan7 login',
+    'dhan77 login',
+    'dhan7 app login',
+    'dhan77 otp login',
+  ],
+})
 
 const steps = [
   'Open the Dhan77 app on your device',
@@ -19,10 +27,10 @@ export default function LoginPage() {
     <main className="flex flex-col gap-12 px-4 py-12 max-w-3xl mx-auto">
       <section className="flex flex-col gap-4">
         <h1 className="text-4xl font-bold text-(--color-accent-gold)">
-          Dhan77 Login
+          Dhan7 Login (Dhan77)
         </h1>
         <p className="text-(--color-text-muted)">
-          Follow these simple steps to log in to your Dhan77 account.
+          Follow these simple steps to log in to your Dhan7 account.
         </p>
       </section>
 
@@ -57,6 +65,23 @@ export default function LoginPage() {
           </li>
         </ul>
       </section>
+
+      <section className="flex flex-col gap-3 rounded-lg border border-(--color-accent-gold) p-5">
+        <h2 className="text-xl font-bold text-(--color-accent-gold)">New User?</h2>
+        <p className="text-(--color-text-muted)">
+          If you have not installed the app yet, start from{' '}
+          <a href="/dhan77-apk-download" className="text-(--color-accent-gold) hover:underline">
+            Dhan7 APK download
+          </a>{' '}
+          and then check{' '}
+          <a href="/faq" className="text-(--color-accent-gold) hover:underline">
+            common Dhan7 questions
+          </a>{' '}
+          before your first deposit.
+        </p>
+      </section>
+
+      <InternalLinks currentPath="/dhan77-login" />
     </main>
   )
 }

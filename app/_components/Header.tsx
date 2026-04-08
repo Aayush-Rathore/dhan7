@@ -15,17 +15,17 @@ export default function Header() {
     <header className="bg-(--color-bg-base) border-b border-(--color-accent-red) sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0">
+        <Link href="/" prefetch={false} className="flex items-center gap-2 shrink-0">
           <Image
             src="/dhan77-logo.png"
-            alt="Dhan77 Logo"
+            alt="Dhan7 Dhan77 Logo"
             width={48}
             height={48}
             className="rounded"
             priority
           />
           <span className="text-(--color-accent-gold) font-bold text-lg leading-tight hidden sm:block">
-            Dhan77
+            Dhan7
           </span>
         </Link>
 
@@ -35,6 +35,7 @@ export default function Header() {
             <Link
               key={href}
               href={href}
+              prefetch={false}
               className="text-(--color-text-primary) hover:text-(--color-accent-gold) text-sm font-medium transition-colors"
             >
               {label}
@@ -65,6 +66,7 @@ export default function Header() {
                 <li key={href}>
                   <Link
                     href={href}
+                    prefetch={false}
                     className="block text-(--color-text-primary) hover:text-(--color-accent-gold) text-base font-medium py-1 transition-colors"
                   >
                     {label}
