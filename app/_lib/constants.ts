@@ -48,3 +48,11 @@ export const INTERNAL_SEO_LINKS = [
     context: 'Common questions about safety, download, and withdrawals.',
   },
 ] as const
+
+export const TRUST_LINKS = [
+  { href: '/about', label: 'About Dhan7' },
+  { href: '/contact', label: 'Contact' },
+  { href: '/privacy-policy', label: 'Privacy Policy' },
+  { href: '/terms-and-conditions', label: 'Terms & Conditions' },
+  { href: '/responsible-gaming', label: 'Responsible Gaming' },
+] as const

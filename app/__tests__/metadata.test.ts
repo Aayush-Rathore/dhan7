@@ -11,6 +11,11 @@ import { metadata as loginMetadata } from '../dhan77-login/page'
 import { metadata as bonusMetadata } from '../dhan77-bonus/page'
 import { metadata as reviewMetadata } from '../dhan77-review/page'
 import { metadata as faqMetadata } from '../faq/page'
+import { metadata as aboutMetadata } from '../about/page'
+import { metadata as contactMetadata } from '../contact/page'
+import { metadata as privacyMetadata } from '../privacy-policy/page'
+import { metadata as termsMetadata } from '../terms-and-conditions/page'
+import { metadata as responsibleGamingMetadata } from '../responsible-gaming/page'
 
 const pages = [
   { metadata: homeMetadata, expectedPath: '/' },
@@ -19,6 +24,11 @@ const pages = [
   { metadata: bonusMetadata, expectedPath: '/dhan77-bonus' },
   { metadata: reviewMetadata, expectedPath: '/dhan77-review' },
   { metadata: faqMetadata, expectedPath: '/faq' },
+  { metadata: aboutMetadata, expectedPath: '/about' },
+  { metadata: contactMetadata, expectedPath: '/contact' },
+  { metadata: privacyMetadata, expectedPath: '/privacy-policy' },
+  { metadata: termsMetadata, expectedPath: '/terms-and-conditions' },
+  { metadata: responsibleGamingMetadata, expectedPath: '/responsible-gaming' },
 ]
 
 describe('Page metadata – Property 4: canonical resolves to siteUrl() + expected path', () => {

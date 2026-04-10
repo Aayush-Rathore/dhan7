@@ -14,6 +14,16 @@ export const metadata: Metadata = {
   description:
     'Download Dhan7 app (Dhan77 APK latest version) and play games to earn real money. Get ₹777 bonus, instant withdrawals, and referral rewards.',
   keywords: DEFAULT_KEYWORDS,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
     type: 'website',
     url: siteUrl(),
@@ -46,12 +56,37 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const websiteSchema = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Dhan7 Gaming App',
+    alternateName: ['Dhan77', 'Dhan7 App'],
+    url: siteUrl(),
+  }).replace(/</g, '\\u003c')
+
+  const organizationSchema = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Dhan7',
+    alternateName: 'Dhan77',
+    url: siteUrl(),
+    logo: `${siteUrl()}/dhan77-logo.png`,
+  }).replace(/</g, '\\u003c')
+
   return (
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col bg-(--color-bg-base) text-(--color-text-primary)">
         <Header />
         {children}
         <Footer />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: websiteSchema }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: organizationSchema }}
+        />
       </body>
     </html>
   )

@@ -13,14 +13,19 @@ const EXPECTED_PATHS = [
   '/dhan77-bonus',
   '/dhan77-review',
   '/faq',
+  '/about',
+  '/contact',
+  '/privacy-policy',
+  '/terms-and-conditions',
+  '/responsible-gaming',
 ]
 
 describe('sitemap – Property 11', () => {
-  it('for any call, all 6 paths are present and every URL starts with siteUrl()', () => {
+  it('for any call, all expected paths are present and every URL starts with siteUrl()', () => {
     fc.assert(
       fc.property(fc.constant(null), () => {
         const entries = sitemap()
-        expect(entries).toHaveLength(6)
+        expect(entries).toHaveLength(EXPECTED_PATHS.length)
         const base = siteUrl()
         for (const path of EXPECTED_PATHS) {
           const expected = `${base}${path}`

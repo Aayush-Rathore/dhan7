@@ -1,15 +1,7 @@
-// Feature: dhan77-gaming-website, Property 12: For any undefined NEXT_PUBLIC_SITE_URL, siteUrl() returns the fallback
-import * as fc from 'fast-check'
 import { describe, it, expect, beforeEach, afterEach } from 'vitest'
+import { siteUrl } from '@/app/_lib/siteUrl'
 
-// Validates: Requirements 11.2
-
-const FALLBACK = 'https://dhan77apkdownload.com'
-
-// Test the siteUrl logic directly (mirrors the implementation)
-function siteUrlUnderTest(): string {
-  return process.env.NEXT_PUBLIC_SITE_URL ?? FALLBACK
-}
+const FALLBACK = 'https://www.dhan7.xyz'
 
 describe('siteUrl – Property 12', () => {
   let original: string | undefined
@@ -26,23 +18,23 @@ describe('siteUrl – Property 12', () => {
     }
   })
 
-  it('for any undefined NEXT_PUBLIC_SITE_URL, returns the fallback URL', () => {
-    fc.assert(
-      fc.property(fc.constant(null), () => {
-        delete process.env.NEXT_PUBLIC_SITE_URL
-        expect(siteUrlUnderTest()).toBe(FALLBACK)
-      }),
-      { numRuns: 100 }
-    )
+  it('returns fallback when NEXT_PUBLIC_SITE_URL is undefined', () => {
+    delete process.env.NEXT_PUBLIC_SITE_URL
+    expect(siteUrl()).toBe(FALLBACK)
   })
 
-  it('for any set NEXT_PUBLIC_SITE_URL, returns that value', () => {
-    fc.assert(
-      fc.property(fc.webUrl(), (url) => {
-        process.env.NEXT_PUBLIC_SITE_URL = url
-        expect(siteUrlUnderTest()).toBe(url)
-      }),
-      { numRuns: 100 }
-    )
+  it('normalizes apex dhan7.xyz to www', () => {
+    process.env.NEXT_PUBLIC_SITE_URL = 'https://dhan7.xyz'
+    expect(siteUrl()).toBe('https://www.dhan7.xyz')
+  })
+
+  it('strips path, query, and hash from NEXT_PUBLIC_SITE_URL', () => {
+    process.env.NEXT_PUBLIC_SITE_URL = 'https://www.dhan7.xyz/path?q=1#hash'
+    expect(siteUrl()).toBe('https://www.dhan7.xyz')
+  })
+
+  it('returns fallback when NEXT_PUBLIC_SITE_URL is invalid', () => {
+    process.env.NEXT_PUBLIC_SITE_URL = 'invalid-url'
+    expect(siteUrl()).toBe(FALLBACK)
   })
 })
