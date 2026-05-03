@@ -3,6 +3,7 @@ import { INTERNAL_SEO_LINKS, TRUST_LINKS } from '@/app/_lib/constants'
 const relatedLinks = [
   { href: 'https://comegameapp.com', label: 'Come Game App' },
   { href: 'https://goplay11-apk.com', label: 'GoPlay11 APK' },
+  { href: 'https://habetapk.com', label: 'Habet APK' },
 ]
 
 export default function Footer() {

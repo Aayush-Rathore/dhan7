@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { siteUrl } from './_lib/siteUrl'
+import { getAllBlogPosts } from './_lib/blogPosts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteUrl()
@@ -20,12 +21,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/privacy-policy', changeFrequency: 'yearly', priority: 0.4 },
     { path: '/terms-and-conditions', changeFrequency: 'yearly', priority: 0.4 },
     { path: '/responsible-gaming', changeFrequency: 'monthly', priority: 0.5 },
+    { path: '/blog', changeFrequency: 'weekly', priority: 0.84 },
   ]
 
-  return routes.map(({ path, changeFrequency, priority }) => ({
+  const staticEntries = routes.map(({ path, changeFrequency, priority }) => ({
     url: `${base}${path}`,
     lastModified: now,
     changeFrequency,
     priority,
   }))
+
+  const blogEntries = getAllBlogPosts().map((post) => ({
+    url: `${base}/blog/${post.slug}`,
+    lastModified: post.updatedAt,
+    changeFrequency: 'monthly' as const,
+    priority: 0.78,
+  }))
+
+  return [...staticEntries, ...blogEntries]
 }

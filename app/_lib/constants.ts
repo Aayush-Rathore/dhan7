@@ -47,6 +47,11 @@ export const INTERNAL_SEO_LINKS = [
     label: 'Dhan7 FAQ',
     context: 'Common questions about safety, download, and withdrawals.',
   },
+  {
+    href: '/blog',
+    label: 'Dhan7 Blog',
+    context: 'Long-tail guides for Dhan7 app download, login, bonus, and gameplay topics.',
+  },
 ] as const
 
 export const TRUST_LINKS = [

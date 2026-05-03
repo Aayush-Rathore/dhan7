@@ -1,4 +1,4 @@
-// Feature: dhan77-gaming-website, Property 1: For any render of Header, all six nav hrefs are present
+// Feature: dhan77-gaming-website, Property 1: For any render of Header, all nav hrefs are present
 import * as fc from 'fast-check'
 import { render } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
@@ -25,10 +25,11 @@ const EXPECTED_HREFS = [
   '/dhan77-bonus',
   '/dhan77-review',
   '/faq',
+  '/blog',
 ]
 
 describe('Header – Property 1', () => {
-  it('for any render, all six nav hrefs are present in the DOM', () => {
+  it('for any render, all nav hrefs are present in the DOM', () => {
     fc.assert(
       fc.property(fc.constant(null), () => {
         const { container } = render(<Header />)

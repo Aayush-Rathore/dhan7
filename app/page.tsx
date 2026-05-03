@@ -48,6 +48,7 @@ const internalLinks = [
   { href: '/dhan77-bonus', label: 'Dhan7 Bonus Offers' },
   { href: '/dhan77-review', label: 'Dhan7 App Review' },
   { href: '/faq', label: 'Dhan7 FAQ' },
+  { href: '/blog', label: 'Dhan7 Long-Tail Blog' },
 ]
 
 export default function HomePage() {

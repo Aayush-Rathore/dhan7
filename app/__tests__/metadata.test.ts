@@ -16,6 +16,7 @@ import { metadata as contactMetadata } from '../contact/page'
 import { metadata as privacyMetadata } from '../privacy-policy/page'
 import { metadata as termsMetadata } from '../terms-and-conditions/page'
 import { metadata as responsibleGamingMetadata } from '../responsible-gaming/page'
+import { metadata as blogMetadata } from '../blog/page'
 
 const pages = [
   { metadata: homeMetadata, expectedPath: '/' },
@@ -29,6 +30,7 @@ const pages = [
   { metadata: privacyMetadata, expectedPath: '/privacy-policy' },
   { metadata: termsMetadata, expectedPath: '/terms-and-conditions' },
   { metadata: responsibleGamingMetadata, expectedPath: '/responsible-gaming' },
+  { metadata: blogMetadata, expectedPath: '/blog' },
 ]
 
 describe('Page metadata – Property 4: canonical resolves to siteUrl() + expected path', () => {

@@ -18,6 +18,17 @@ const EXPECTED_PATHS = [
   '/privacy-policy',
   '/terms-and-conditions',
   '/responsible-gaming',
+  '/blog',
+  '/blog/dhan-7-app-download-checklist-2026',
+  '/blog/dhan-7-login-otp-issues-fix-guide',
+  '/blog/dhan-77-games-list-and-how-they-work',
+  '/blog/dhan7-bet-safety-and-bankroll-guide',
+  '/blog/online-gaming-apps-india-dhan7-comparison',
+  '/blog/dhan7-withdrawal-time-pending-fix-guide',
+  '/blog/dhan-7-bonus-terms-and-usage-guide',
+  '/blog/is-dhan-7-real-or-fake-verification-checklist',
+  '/blog/goplay11-vs-dhan7-feature-comparison',
+  '/blog/habet-and-dhan7-platform-safety-comparison',
 ]
 
 describe('sitemap – Property 11', () => {
