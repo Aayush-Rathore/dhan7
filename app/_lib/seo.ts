@@ -40,6 +40,7 @@ export function buildPageMetadata({
       title,
       description,
       siteName: 'Dhan7 Gaming App',
+      locale: 'en_IN',
     },
     twitter: {
       card: 'summary_large_image',

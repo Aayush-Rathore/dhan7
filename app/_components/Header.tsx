@@ -8,6 +8,7 @@ const navLinks = [
   { href: '/dhan77-bonus', label: 'Bonus' },
   { href: '/dhan77-review', label: 'Review' },
   { href: '/faq', label: 'FAQ' },
+  { href: '/about', label: 'About' },
   { href: '/blog', label: 'Blog' },
 ]
 

@@ -68,11 +68,19 @@ describe('HomePage – Property 9: JSON-LD parses to valid SoftwareApplication s
         const script = container.querySelector('script[type="application/ld+json"]')
         expect(script).not.toBeNull()
         const parsed = JSON.parse(script!.innerHTML)
-        expect(parsed['@type']).toBe('SoftwareApplication')
-        expect(parsed['name']).toBe('Dhan77')
-        expect(parsed['operatingSystem']).toBe('Android')
-        expect(parsed['downloadUrl']).toBe(DOWNLOAD_LINK)
-        expect(parsed['url']).toBe(siteUrl())
+        
+        // The schema now uses @graph structure
+        expect(parsed['@context']).toBe('https://schema.org')
+        expect(parsed['@graph']).toBeDefined()
+        expect(Array.isArray(parsed['@graph'])).toBe(true)
+        
+        // Find the SoftwareApplication in the graph
+        const softwareApp = parsed['@graph'].find((item: any) => item['@type'] === 'SoftwareApplication')
+        expect(softwareApp).toBeDefined()
+        expect(softwareApp['name']).toBe('Dhan 7 App')
+        expect(softwareApp['operatingSystem']).toBe('Android')
+        expect(softwareApp['downloadUrl']).toBe(DOWNLOAD_LINK)
+        expect(softwareApp['url']).toBe(siteUrl())
       }),
       { numRuns: 100 }
     )

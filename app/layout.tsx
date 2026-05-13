@@ -31,6 +31,7 @@ export const metadata: Metadata = {
     description:
       'Download Dhan7 app (Dhan77 APK latest version) and play games to earn real money. Get ₹777 bonus, instant withdrawals, and referral rewards.',
     siteName: 'Dhan7 Gaming App',
+    locale: 'en_IN',
     images: [
       {
         url: '/dhan77-logo.png',
